@@ -1,0 +1,69 @@
+<!--PET: http://amdocs-pet-oms-app.global.dish.com/oss-webServices/NotificationSvc -->
+<!-- TQA 2 http://tamnpbap04:12740/oss-webServices/NotificationSvc -->
+<!-- TQA 4 http://tamnpbap06:12740/oss-webServices/NotificationSvc -->
+<!-- PROD http://amdocs-oms-app.global.dish.com/oss-webServices/NotificationSvc -->
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" 
+	xmlns:v1="http://amdocs.com/oss/xml/event/v1">
+      <soapenv:Header>
+        <wsse:Security soapenv:mustUnderstand="1"
+            xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+            xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+            <wsse:UsernameToken wsu:Id="UsernameToken-BD99AD588E6EB4233B14266748518672">
+                <wsse:Username>OMS</wsse:Username>
+                <wsse:Password
+                    Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText"
+                    >Oms111</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soapenv:Header>
+   <soapenv:Body>
+      <notify xmlns="http://amdocs.com/oss/xml/event/v1"
+            xmlns:ns2="http://amdocs.com/oss/xml/orderorchestration/deliverymanager/msg/v1"
+            xmlns:ns3="http://amdocs.com/oss/xml/decompose-event/msg/v1"
+            xmlns:ns4="http://amdocs.com/oss/xml/common/v1"
+            xmlns:ns5="http://amdocs.com/oss/xml/common-cbecore/v1"
+            xmlns:ns6="http://amdocs.com/oss/xml/common-cbeparty/v1"
+            xmlns:ns7="http://amdocs.com/oss/xml/order/v1"
+            xmlns:ns8="http://amdocs.com/oss/xml/common-cbecustomer/v1"
+            xmlns:ns9="http://amdocs.com/oss/xml/common-cbelocation/v1"
+            xmlns:ns10="http://amdocs.com/oss/xml/request-event/msg/v1"
+            xmlns:ns11="http://amdocs.com/common-header/v1"
+            xmlns:ns12="http://amdocs.com/oss/xml/orderorchestration/orderitem/notification/msg/v1"
+            xmlns:ns13="http://amdocs.com/oss/xml/orderorchestration/orderitemstatus/notification/msg/v1"
+            xmlns:ns14="http://amdocs.com/oss/xml/order/event/msg/v1">
+         <Message>
+            <ns10:requestChangeEvent>
+                    <ns10:order>
+                        <ns7:orderId>1501</ns7:orderId> <!-- order ID -->
+                        <ns7:describedBy>
+                            <ns5:item>
+                                <ns5:value>2817661</ns5:value> <!-- order ID -->
+                                <ns5:name>OrderExternalID</ns5:name> 
+                            </ns5:item>
+                        </ns7:describedBy>
+                        <ns7:orderItem>
+                            <ns7:item>
+                                <ns7:Id>8632</ns7:Id> <!-- order action ID -->
+                                <ns7:describedBy>
+                                    <ns5:item>
+                                        <ns5:value>Order</ns5:value>
+                                        <ns5:name>StatusLevel</ns5:name>
+                                    </ns5:item>
+                                </ns7:describedBy>
+                                <ns7:status>
+								<ns5:code>oss_status_Completed</ns5:code>
+								<ns5:description>oss_status_Completed</ns5:description>
+						</ns7:status>
+                            </ns7:item>
+                        </ns7:orderItem>
+                        <ns7:status>
+                            <ns5:code>oss_status_Completed</ns5:code>
+                            <ns5:description>oss_status_Completed</ns5:description>
+                        </ns7:status>
+                    </ns10:order>
+                </ns10:requestChangeEvent>
+         </Message>
+      </notify>
+   </soapenv:Body>
+</soapenv:Envelope>
